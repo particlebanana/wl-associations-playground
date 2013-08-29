@@ -88,7 +88,7 @@ module.exports.routes = {
     action: 'update'
   },
 
-  'delete /users/:id/places/:id': {
+  'delete /users/:id/places/:place_id': {
     controller: 'placeuser',
     action: 'del'
   },

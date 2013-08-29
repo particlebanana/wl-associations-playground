@@ -87,7 +87,7 @@ module.exports = {
         .populate('places')
         .exec(function(err, user) {
           if(err) return res.json(err, 400);
-          res.json(user, 201);
+          res.json(user, 200);
         });
       });
     });
@@ -95,12 +95,35 @@ module.exports = {
 
   /**
    * Remove a User from a Place
+   *
+   * The associations remove API takes an existing associated record's primary
+   * key value and removes the association. Here it will remove the record from the
+   * join table.
    */
 
   del: function(req, res) {
 
-    // To-Do In Waterline
-    res.json({ error: 'NOT YET IMPLEMENTED IN WATERLINE' });
+    // First lookup the User
+    User.findOne(req.param('id')).exec(function(err, user) {
+      if(err) return res.json(err, 400);
+      if(!user) return res.json({ error: 'No User Found' }, 404);
+
+      // Remove the place using the place_id param
+      user.places.remove(req.param('place_id'));
+
+      // Save the user
+      user.save(function(err) {
+        if(err) return res.json(err, 400);
+
+        // Lookup the user and populate the places association
+        User.findOne(user.id)
+        .populate('places')
+        .exec(function(err, user) {
+          if(err) return res.json(err, 400);
+          res.json(user, 200);
+        });
+      });
+    });
   }
 
 };
