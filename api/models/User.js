@@ -1,4 +1,3 @@
-
 /**
  * User Model
  */
@@ -15,7 +14,7 @@ module.exports = {
     },
 
     // Has Many Relationship
-    // A User can have many relationships
+    // A User can have many reservations
     reservations: {
       collection: 'reservation'
     },
