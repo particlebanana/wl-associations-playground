@@ -8,4 +8,8 @@ It currently relies on git checkouts of:
 * [Waterline](https://github.com/balderdashy/waterline/tree/associations)
 * [Sails-MySQL](https://github.com/balderdashy/sails-mysql/tree/associations)
 
-Associations currently only work with MySQL and lots of things will break.
+or
+
+* [Sails-Postgresql](https://github.com/balderdashy/sails-postgresql/tree/associations)
+
+Associations currently only work with MySQL/PostgreSQL and lots of things will break.
