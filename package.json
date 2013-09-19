@@ -7,7 +7,7 @@
         "sails": "git://github.com/particlebanana/sails.git#associations",
         "sails-mysql": "git://github.com/balderdashy/sails-mysql.git#associations",
         "grunt": "0.4.1",
-        "sails-disk": "~0.9.0",
+        "sails-disk": "git://github.com/balderdashy/sails-disk.git#associations",
         "ejs": "0.8.4",
         "optimist": "0.3.4"
     },
